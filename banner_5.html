@@ -62,6 +62,9 @@
         filter: blur(1px);
       }
 
+      .quote-mark {
+        font-size: 2rem !important;
+      }
       .glow-1 {
         width: 200px;
         height: 200px;
@@ -100,13 +103,14 @@
         font-size: 26px;
         font-weight: 600;
         color: #00ffff;
-        text-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.4);
-        margin-bottom: 35px;
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.8),
+          0 0 40px rgba(0, 255, 255, 0.4);
+        margin-top: 20px;
         font-family: "Arial", sans-serif;
         font-style: normal;
         line-height: 1.3;
-        white-space: nowrap;
-        width: auto;
+        white-space: normal;
+        max-width: 800px;
         letter-spacing: 1px;
       }
 
@@ -356,13 +360,6 @@
 
       <!-- Main Content -->
       <div class="content">
-        <div class="quote">
-          <!-- "Code is like humor. When you have to explain it, it's bad." -->
-          !!Architecting scalable solutions where innovation meets
-          functionality!!
-        </div>
-        <!-- <p class="quote-author">- Cory House</p> -->
-
         <div class="tech-stack">
           <div class="tech-item">
             <img
@@ -438,7 +435,13 @@
           </div>
         </div>
 
-        <div class="empty-space"></div>
+        <div class="quote">
+          <!-- "Code is like humor. When you have to explain it, it's bad." -->
+          <span class="quote-mark">"</span>
+          Architecting scalable solutions where innovation meets functionality
+          <span class="quote-mark">"</span>
+        </div>
+        <!-- <p class="quote-author">- Cory House</p> -->
       </div>
 
       <!-- Code Snippet Display -->
@@ -472,13 +475,13 @@
 
         try {
           // Add crossorigin attribute to all images before capturing
-          const images = banner.querySelectorAll('img');
-          images.forEach(img => {
-            img.crossOrigin = 'anonymous';
+          const images = banner.querySelectorAll("img");
+          images.forEach((img) => {
+            img.crossOrigin = "anonymous";
           });
 
           // Wait a moment for images to reload with CORS
-          await new Promise(resolve => setTimeout(resolve, 1000));
+          await new Promise((resolve) => setTimeout(resolve, 1000));
 
           const canvas = await html2canvas(banner, {
             backgroundColor: null,
@@ -489,7 +492,7 @@
             height: 396,
             logging: true,
             imageTimeout: 15000,
-            removeContainer: true
+            removeContainer: true,
           });
 
           // Create download link
